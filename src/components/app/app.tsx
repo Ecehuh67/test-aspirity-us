@@ -1,4 +1,4 @@
-// import '../../less/style.less';
+import '../../less/style';
 
 const App: React.FC = () => {
   return (
