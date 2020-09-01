@@ -1,9 +1,13 @@
 import '../../less/style';
+import PreviewScreen from '../preview-screen/preview-screen';
+import StatisticPage from '../statistic-page/statistic-page';
 
 const App: React.FC = () => {
+  const [isPreviewScreen, setPreviewScreen] = React.useState(false);
   return (
     <>
-      <h1>SMTH</h1>
+      {isPreviewScreen && <PreviewScreen cb={setPreviewScreen} />}
+      {!isPreviewScreen && <StatisticPage />}
     </>
   );
 };
