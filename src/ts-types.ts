@@ -8,7 +8,9 @@ export type NodeProps = {
 
 export type ContextProps = {
   userData: UserData;
+  filteredData: UserData;
   setUserData;
+  setFilteredData;
 };
 
 export type UserData = {

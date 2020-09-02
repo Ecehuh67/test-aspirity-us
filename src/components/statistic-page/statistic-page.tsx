@@ -1,11 +1,8 @@
-import { TYPES_OF_SORTING, generateKey, generateUserData } from '../../consts';
+import { TYPES_OF_SORTING, generateKey } from '../../consts';
 import { AppContext } from '../context-provider/context-provider';
 
 const statisticPage: React.SFC = () => {
-  const { userData, setUserData } = React.useContext(AppContext);
-  React.useEffect(() => {
-    setUserData(generateUserData(8));
-  }, []);
+  const { userData, setUserData, filteredData } = React.useContext(AppContext);
 
   return (
     <main className="html-wrapper main statistic-main">

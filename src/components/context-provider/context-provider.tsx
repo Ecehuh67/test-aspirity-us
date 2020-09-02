@@ -4,12 +4,14 @@ import { UserData, ContextProps, NodeProps } from '../../ts-types';
 const AppContext = React.createContext<ContextProps | null>(null);
 
 const ContextProvider = (props: NodeProps) => {
-  // data for manipulating condition inside the application
   const [userData, setUserData] = React.useState<UserData | []>([]);
+  const [filteredData, setFilteredData] = React.useState<UserData | []>([]);
 
   const sampleAppContext: ContextProps = {
     userData,
+    filteredData,
     setUserData,
+    setFilteredData,
   };
 
   return (
