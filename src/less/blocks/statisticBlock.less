@@ -1,0 +1,161 @@
+.statistic-main__section {
+  box-sizing: border-box;
+  padding: 20px 70px 20px 30px;
+
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+
+  color: #e5eaf5;
+}
+
+.statistic-main__sorting {
+  display: flex;
+  box-sizing: border-box;
+  padding: 10px 20px;
+
+  margin-bottom: 25px;
+}
+
+.statistic-main__sorting-title {
+  margin-right: 30px;
+}
+
+.sorting-panel__item:not(:last-of-type) {
+  margin-right: 20px;
+}
+
+.sorting-panel__item-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 2px 15px;
+
+  height: 18px;
+
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+
+.statistic-main__sorting-panel {
+  display: flex;
+}
+
+.statistic-main__table-body {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.statistic-main__table {
+  display: flex;
+  flex-direction: column;
+}
+
+.statistic-main__table-head {
+  margin-bottom: 5px;
+}
+
+.statistic-main__table-colums {
+  display: flex;
+}
+
+.table-colums__item {
+  display: flex;
+  justify-content: center;
+  width: calc(380px / 3);
+}
+
+.table-row__item-content {
+  display: flex;
+}
+
+.table-row__item {
+  position: relative;
+
+  margin-bottom: 2px;
+
+  border-radius: 10px;
+}
+
+.table-row__item--count {
+  background-color: rgba(140, 145, 171, 0.2);
+  color: #f2d53c;
+}
+
+.table-row__item-controls {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  padding: 5px;
+
+  right: -60px;
+  top: 0px;
+
+  width: 50px;
+
+  border-radius: 10px;
+}
+
+.controls-panel--count {
+  height: 20px;
+  width: px;
+
+  background-color: rgba(140, 145, 171, 0.2);
+}
+
+.controls-panel__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+  outline: none;
+  border: none;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  background-color: lightcoral;
+
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+
+.controls-panel__item--edit {
+  background-color: lightgreen;
+}
+
+.statistic-main__add-container {
+  position: absolute;
+
+  bottom: -35px;
+  left: 5px;
+}
+
+.statistic-main__add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 25px;
+  height: 25px;
+
+  font-size: 20px;
+
+  border-radius: 50%;
+  outline: none;
+  border: none;
+
+  transform: rotate(45deg);
+  background-color: rgba(222, 224, 231, 0.9);
+
+  &:hover {
+    background-color: rgba(222, 224, 231, 0.5);
+  }
+}
