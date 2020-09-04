@@ -11,10 +11,16 @@ app.use(express.json());
 
 const { generateUserData } = require('./server-consts');
 
-const userStatistic = generateUserData(15);
+let userStatistic = generateUserData(15);
 
 app.get('/', (req, res) => {
   res.json(userStatistic);
+});
+
+app.post('/', (req, res) => {
+  const newStatistic = userStatistic.filter((el) => el.id !== req.body.id);
+  userStatistic = newStatistic;
+  res.json(newStatistic);
 });
 
 server.listen(3001, (err) => {

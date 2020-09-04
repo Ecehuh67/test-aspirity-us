@@ -7,7 +7,7 @@ const generateUniqueId = () => {
 const generateUserData = (count) => {
   const newData = new Array(count).fill('').map((el) => {
     const day = Math.floor(Math.random() * new Date().getDate()) + 1;
-    const month = Math.round(Math.random() * new Date().getMonth());
+    const month = Math.round(Math.random() * new Date().getMonth()) + 1;
     const year = new Date().getFullYear() - Math.round(Math.random() * 10);
     const id = generateUniqueId();
     return {

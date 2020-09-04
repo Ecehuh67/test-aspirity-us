@@ -1,11 +1,10 @@
+import axios from 'axios';
 import Filters from '../filters/filters';
-import { generateKey } from '../../consts';
+import { generateKey, SERVER_URL } from '../../consts';
 import { AppContext } from '../context-provider/context-provider';
-import { UserData } from '../../ts-types';
 
 const statisticPage: React.SFC = () => {
   const { userData, filteredData, setFilter } = React.useContext(AppContext);
-  // const [filteredData, setFilteredData] = React.useState<UserData>(userData);
 
   React.useEffect(() => {
     setFilter(userData);
@@ -59,7 +58,14 @@ const statisticPage: React.SFC = () => {
                       <button className="controls-panel__item controls-panel__item--edit">
                         /
                       </button>
-                      <button className="controls-panel__item controls-panel__item--delete">
+                      <button
+                        className="controls-panel__item controls-panel__item--delete"
+                        onClick={() => {
+                          axios.post(SERVER_URL, point).then((res) => {
+                            setFilter(res.data);
+                          });
+                        }}
+                      >
                         &times;
                       </button>
                     </div>

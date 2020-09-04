@@ -1,11 +1,6 @@
 import Filter from '../filter/filter';
 import { AppContext } from '../context-provider/context-provider';
-import {
-  changeFilter,
-  DATE_FILTERS,
-  TYPES_FILTERS,
-  TYPES_OF_SORTING,
-} from '../../consts';
+import { changeFilter, DATE_FILTERS, TYPES_FILTERS } from '../../consts';
 import { Filters } from '../../ts-types';
 
 const Filters: React.SFC = () => {
@@ -37,30 +32,6 @@ const Filters: React.SFC = () => {
   React.useEffect(() => {
     setFilter(changeFilter(userData, filters));
   }, [filters]);
-
-  const generateFilterComponent = (
-    filterList,
-    activeFilters,
-    currentFilter,
-    setNewFilter,
-    isActive,
-    setActive,
-    resetCurrentFilter
-  ) => {
-    return TYPES_OF_SORTING.map((el) => {
-      return (
-        <Filter
-          filterList={filterList}
-          activeFilters={activeFilters}
-          currentFilter={el}
-          setNewFilter={setNewFilter}
-          isActive={isActive}
-          setActive={setActive}
-          resetCurrentFilter={resetCurrentFilter}
-        />
-      );
-    });
-  };
 
   return (
     <>

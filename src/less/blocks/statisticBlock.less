@@ -10,18 +10,25 @@
 
 .statistic-main__sorting {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
   padding: 10px 20px;
+}
 
-  margin-bottom: 25px;
+.statistic-main__sorting-panel {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .statistic-main__sorting-title {
-  margin-right: 30px;
+  margin-bottom: 10px;
 }
 
 .sorting-panel__item:not(:last-of-type) {
   margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .sorting-panel__item-button {
@@ -31,7 +38,7 @@
   box-sizing: border-box;
   padding: 2px 15px;
 
-  width: 100px;
+  width: 70px;
   height: 18px;
 
   border-radius: 10px;
@@ -43,10 +50,12 @@
 .sorting-panel__item-wrapper {
   position: relative;
   box-sizing: border-box;
-  padding: 0 30px;
+  padding: 0 17px;
 
   background-color: white;
   border-radius: 10px;
+
+  font-size: 12px;
 }
 
 .sorting-panel__item-controls {
@@ -70,14 +79,14 @@
 }
 
 .sorting-panel__item-controls--back {
-  right: -4px;
+  right: -10px;
 
   border-color: transparent;
   border-right-color: black;
 }
 
 .sorting-panel__item-controls--forward {
-  left: -4px;
+  left: -10px;
 
   border-color: transparent;
   border-left-color: black;
