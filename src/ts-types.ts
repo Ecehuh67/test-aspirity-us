@@ -1,5 +1,6 @@
 export interface PreviewScreenProps {
   cb: (flag: boolean) => void;
+  loadData: (flag: boolean) => void;
 }
 
 export type NodeProps = {
@@ -10,11 +11,28 @@ export type ContextProps = {
   userData: UserData;
   filteredData: UserData;
   setUserData;
-  setFilteredData;
+  setFilter;
 };
 
 export type UserData = {
   date: string;
   type: string;
   distance: number;
+  id: string;
 }[];
+
+export type Filters = {
+  date: string;
+  type: string;
+  distance: string;
+};
+
+export type FilterProps = {
+  filterList: string[];
+  activeFilters: Filters;
+  currentFilter: string;
+  setNewFilter;
+  isActive: boolean;
+  setActive;
+  resetCurrentFilter;
+};

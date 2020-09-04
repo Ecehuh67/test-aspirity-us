@@ -31,11 +31,56 @@
   box-sizing: border-box;
   padding: 2px 15px;
 
+  width: 100px;
   height: 18px;
 
   border-radius: 10px;
   outline: none;
   border: none;
+  background-color: lightgrey;
+}
+
+.sorting-panel__item-wrapper {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 30px;
+
+  background-color: white;
+  border-radius: 10px;
+}
+
+.sorting-panel__item-controls {
+  position: absolute;
+
+  top: 2px;
+
+  width: 0;
+  height: 0;
+
+  font-size: 0;
+
+  border: 6px solid red;
+  outline: none;
+  background-color: transparent;
+  transform: rotate(180deg);
+}
+
+.sorting-panel__item-controls--hidden {
+  display: none;
+}
+
+.sorting-panel__item-controls--back {
+  right: -4px;
+
+  border-color: transparent;
+  border-right-color: black;
+}
+
+.sorting-panel__item-controls--forward {
+  left: -4px;
+
+  border-color: transparent;
+  border-left-color: black;
 }
 
 .statistic-main__sorting-panel {

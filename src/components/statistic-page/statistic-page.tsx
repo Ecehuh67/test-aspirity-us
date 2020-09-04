@@ -1,8 +1,15 @@
-import { TYPES_OF_SORTING, generateKey } from '../../consts';
+import Filters from '../filters/filters';
+import { generateKey } from '../../consts';
 import { AppContext } from '../context-provider/context-provider';
+import { UserData } from '../../ts-types';
 
 const statisticPage: React.SFC = () => {
-  const { userData, setUserData, filteredData } = React.useContext(AppContext);
+  const { userData, filteredData, setFilter } = React.useContext(AppContext);
+  // const [filteredData, setFilteredData] = React.useState<UserData>(userData);
+
+  React.useEffect(() => {
+    setFilter(userData);
+  }, userData);
 
   return (
     <main className="html-wrapper main statistic-main">
@@ -12,17 +19,7 @@ const statisticPage: React.SFC = () => {
           <h2 className="visually-hidden">Sorting panel</h2>
           <span className="statistic-main__sorting-title">Sorting</span>
           <ul className="statistic-main__sorting-panel sorting-panel">
-            {TYPES_OF_SORTING.map((type, i) => {
-              return (
-                <li className="sorting-panel__item" key={generateKey(i)}>
-                  <div className="sorting-panel__item-wrapper">
-                    <button className="sorting-panel__item-button">
-                      {type}
-                    </button>
-                  </div>
-                </li>
-              );
-            })}
+            <Filters />
           </ul>
         </div>
         <div className="statistic-main__table">
@@ -35,7 +32,7 @@ const statisticPage: React.SFC = () => {
           </div>
           <div className="statistic-main__table-body">
             <ul className="statistic-main__table-rows table-row">
-              {userData.map((point, i) => {
+              {filteredData.map((point, i) => {
                 return (
                   <li
                     className={`table-row__item ${

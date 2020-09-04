@@ -5,13 +5,13 @@ const AppContext = React.createContext<ContextProps | null>(null);
 
 const ContextProvider = (props: NodeProps) => {
   const [userData, setUserData] = React.useState<UserData | []>([]);
-  const [filteredData, setFilteredData] = React.useState<UserData | []>([]);
+  const [filteredData, setFilter] = React.useState<UserData | []>([]);
 
   const sampleAppContext: ContextProps = {
     userData,
-    filteredData,
     setUserData,
-    setFilteredData,
+    filteredData,
+    setFilter,
   };
 
   return (
