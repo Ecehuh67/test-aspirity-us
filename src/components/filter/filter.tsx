@@ -15,6 +15,7 @@ const Filter: React.SFC<FilterProps> = ({
         <div className="sorting-panel__item-wrapper">
           <button
             className="sorting-panel__item-controls sorting-panel__item-controls--back sorting-panel__item-controls--hidden"
+            type="button"
             onClick={() => {
               let index = filterList.indexOf(activeFilters[currentFilter]);
 
@@ -36,6 +37,7 @@ const Filter: React.SFC<FilterProps> = ({
           </button>
           <button
             className="sorting-panel__item-controls sorting-panel__item-controls--forward sorting-panel__item-controls--hidden"
+            type="button"
             onClick={() => {
               let index = filterList.indexOf(activeFilters[currentFilter]);
 
@@ -57,6 +59,7 @@ const Filter: React.SFC<FilterProps> = ({
           </button>
           <button
             className="sorting-panel__item-button"
+            type="button"
             onClick={(evt) => {
               const element = evt.currentTarget;
               const controls = Array.from(element.parentElement.children).slice(
@@ -65,12 +68,12 @@ const Filter: React.SFC<FilterProps> = ({
               );
               setActive(!isActive);
               if (isActive) {
-                controls.map((el) => {
+                controls.forEach((el) => {
                   el.classList.add('sorting-panel__item-controls--hidden');
                 });
                 resetCurrentFilter(currentFilter);
               } else {
-                controls.map((el) => {
+                controls.forEach((el) => {
                   el.classList.remove('sorting-panel__item-controls--hidden');
                 });
               }

@@ -28,4 +28,5 @@ module.exports = {
   MAX_DISTANCE,
   TYPES_OF_ACTIVITY,
   generateUserData,
+  generateUniqueId,
 };

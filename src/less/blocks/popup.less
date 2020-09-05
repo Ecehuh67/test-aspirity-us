@@ -1,0 +1,116 @@
+.popup-main {
+  z-index: 100;
+  position: absolute;
+
+  top: 10px;
+  left: 15%;
+
+  width: 350px;
+  min-height: 250px;
+
+  background-color: lightblue;
+}
+
+.popup-main__overlay {
+  .discard;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 90;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-main__button-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  font-size: 25px;
+  font-weight: 900;
+
+  outline: none;
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    color: red;
+  }
+
+  &:active {
+    color: lightcoral;
+  }
+}
+
+.popup-main__caption {
+  align-self: center;
+  margin-bottom: 20px;
+
+  font-size: 25px;
+}
+
+.popup-main__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-main__form {
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.form__item-wrapper:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.form__item-wrapper {
+  display: flex;
+
+  & > label {
+    margin-right: 10px;
+
+    width: 100px;
+  }
+
+  & > select {
+    display: flex;
+  }
+
+  & > input,
+  & > select {
+    box-sizing: border-box;
+
+    padding: 2px 5px;
+
+    width: 200px;
+
+    border-radius: 5px;
+    border: none;
+    outline: none;
+
+    &:focus {
+      outline: 1px solid lightgreen;
+    }
+  }
+}
+
+.popup-main__button-send {
+  position: absolute;
+
+  width: 100px;
+
+  bottom: 30px;
+  right: 120px;
+
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(14, 134, 136, 0.5);
+
+  &:hover {
+    background-color: lightgreen;
+  }
+}

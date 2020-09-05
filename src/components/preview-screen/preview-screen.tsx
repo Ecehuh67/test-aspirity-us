@@ -26,7 +26,7 @@ const PreviewScreen: React.SFC<PreviewScreenProps> = ({ cb, loadData }) => {
           }, SERVER_DELAY);
         }}
       >
-        Let's run
+        Let&apos;s run
       </button>
     </main>
   );

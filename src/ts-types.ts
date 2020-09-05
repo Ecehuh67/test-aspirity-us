@@ -12,6 +12,8 @@ export type ContextProps = {
   filteredData: UserData;
   setUserData;
   setFilter;
+  setFilters;
+  filters: Filters;
 };
 
 export type UserData = {
@@ -35,4 +37,16 @@ export type FilterProps = {
   isActive: boolean;
   setActive;
   resetCurrentFilter;
+};
+
+export type PopupProps = {
+  cb;
+  editPoint?: {
+    date?: string;
+    type?: string;
+    distance?: number;
+    id?: string;
+    isEdit: boolean;
+  };
+  resetEdit;
 };

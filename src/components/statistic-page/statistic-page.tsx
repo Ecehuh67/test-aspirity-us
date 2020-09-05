@@ -1,14 +1,23 @@
 import axios from 'axios';
 import Filters from '../filters/filters';
-import { generateKey, SERVER_URL } from '../../consts';
+import NewData from '../new-data/new-data';
+import { generateKey, SERVER_URL, changeFilter } from '../../consts';
 import { AppContext } from '../context-provider/context-provider';
 
 const statisticPage: React.SFC = () => {
-  const { userData, filteredData, setFilter } = React.useContext(AppContext);
+  const {
+    userData,
+    filteredData,
+    setFilter,
+    setUserData,
+    filters,
+  } = React.useContext(AppContext);
+  const [popup, setPopup] = React.useState(null);
+  const [editPoint, setEdit] = React.useState({ isEdit: false });
 
   React.useEffect(() => {
-    setFilter(userData);
-  }, userData);
+    setFilter(changeFilter(userData, filters));
+  }, [userData]);
 
   return (
     <main className="html-wrapper main statistic-main">
@@ -55,14 +64,28 @@ const statisticPage: React.SFC = () => {
                         (i + 1) % 2 > 0 ? 'controls-panel--count' : ''
                       }`}
                     >
-                      <button className="controls-panel__item controls-panel__item--edit">
+                      <button
+                        className="controls-panel__item controls-panel__item--edit"
+                        type="button"
+                        onClick={() => {
+                          setEdit((prev) => {
+                            return {
+                              ...point,
+                              ...prev,
+                              isEdit: true,
+                            };
+                          });
+                          popup.current.classList.remove('visually-hidden');
+                        }}
+                      >
                         /
                       </button>
                       <button
                         className="controls-panel__item controls-panel__item--delete"
+                        type="button"
                         onClick={() => {
                           axios.post(SERVER_URL, point).then((res) => {
-                            setFilter(res.data);
+                            setUserData(res.data);
                           });
                         }}
                       >
@@ -75,11 +98,20 @@ const statisticPage: React.SFC = () => {
             </ul>
 
             <div className="statistic-main__add-container">
-              <button className="statistic-main__add-button">&times;</button>
+              <button
+                className="statistic-main__add-button"
+                type="button"
+                onClick={() => {
+                  popup.current.classList.remove('visually-hidden');
+                }}
+              >
+                &times;
+              </button>
             </div>
           </div>
         </div>
       </section>
+      <NewData cb={setPopup} editPoint={editPoint} resetEdit={setEdit} />
     </main>
   );
 };

@@ -101,3 +101,33 @@ export const changeFilter = (data: UserData, listFilters: Filters) => {
 
   return filteredData;
 };
+
+export const validateDate = (value) => {
+  const pattern = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/i;
+  const isValid = value.toString().match(pattern) !== null;
+  return isValid;
+};
+
+export const changeState = (field, bool, value, cb) => {
+  if (bool) {
+    cb((prev) => {
+      return {
+        ...prev,
+        [field]: {
+          isValid: true,
+          value,
+        },
+      };
+    });
+  } else {
+    cb((prev) => {
+      return {
+        ...prev,
+        [field]: {
+          isValid: false,
+          value,
+        },
+      };
+    });
+  }
+};
