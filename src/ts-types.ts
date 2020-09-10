@@ -1,6 +1,6 @@
 export interface PreviewScreenProps {
   cb: (flag: boolean) => void;
-  loadData: (flag: boolean) => void;
+  loadStatistic: () => void;
 }
 
 export type NodeProps = {
@@ -49,4 +49,9 @@ export type PopupProps = {
     isEdit: boolean;
   };
   resetEdit;
+};
+
+export type Reducer = {
+  statistic: UserData;
+  sortedStatistic: UserData | [];
 };

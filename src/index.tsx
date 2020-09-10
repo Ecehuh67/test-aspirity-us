@@ -1,9 +1,22 @@
 import App from './components/app/app';
-import ContextProvider from './components/context-provider/context-provider';
+import thunk from 'redux-thunk';
+import { reducer } from './reducer/reducer';
+import { Provider } from 'react-redux';
+import { createApi } from './api';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const api = createApi();
+console.log(api);
+
+const store = createStore(
+  reducer,
+  composeWithDevTools(applyMiddleware(thunk.withExtraArgument(api)))
+);
 
 ReactDOM.render(
-  <ContextProvider>
+  <Provider store={store}>
     <App />
-  </ContextProvider>,
+  </Provider>,
   document.querySelector('#root')
 );

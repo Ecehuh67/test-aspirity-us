@@ -1,10 +1,17 @@
 import axios from 'axios';
 import { PreviewScreenProps } from '../../ts-types';
 import { SERVER_URL, SERVER_DELAY } from '../../consts';
-import { AppContext } from '../context-provider/context-provider';
+// import { AppContext } from '../context-provider/context-provider';
 
-const PreviewScreen: React.SFC<PreviewScreenProps> = ({ cb, loadData }) => {
-  const { setUserData } = React.useContext(AppContext);
+const PreviewScreen: React.SFC<PreviewScreenProps> = ({
+  cb,
+  loadStatistic,
+}) => {
+  // const { setUserData } = React.useContext(AppContext);
+
+  React.useEffect(() => {
+    loadStatistic();
+  }, []);
   return (
     <main className="html-wrapper main preview-main">
       <h1 className="preview-main__caption">Welcome to Best Runner App !</h1>
@@ -14,16 +21,16 @@ const PreviewScreen: React.SFC<PreviewScreenProps> = ({ cb, loadData }) => {
         onClick={() => {
           cb(false);
 
-          setTimeout(() => {
-            axios
-              .get(SERVER_URL)
-              .then(({ data }) => {
-                setUserData(data);
-              })
-              .then(() => {
-                loadData(true);
-              });
-          }, SERVER_DELAY);
+          // setTimeout(() => {
+          //   axios
+          //     .get(SERVER_URL)
+          //     .then(({ data }) => {
+          //       setUserData(data);
+          //     })
+          //     .then(() => {
+          //       loadData(true);
+          //     });
+          // }, SERVER_DELAY);
         }}
       >
         Let&apos;s run

@@ -1,5 +1,5 @@
 import '../../less/style.less';
-import PreviewScreen from '../preview-screen/preview-screen';
+import PreviewScreen from '../preview-screen/preview-screen.connect';
 import StatisticPage from '../statistic-page/statistic-page';
 import LoadingScreen from '../loading-screen/loading-screen';
 
