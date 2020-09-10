@@ -11,8 +11,8 @@ const generateUserData = (count) => {
     const year = new Date().getFullYear() - Math.round(Math.random() * 10);
     const id = generateUniqueId();
     return {
-      date: `${day < 10 ? `0${day}` : { day }}/${
-        month < 10 ? `0${month}` : { month }
+      date: `${day < 10 ? `0${day}` : `${day}`}/${
+        month < 10 ? `0${month}` : `${month}`
       }/${year}`,
       type:
         TYPES_OF_ACTIVITY[Math.floor(Math.random() * TYPES_OF_ACTIVITY.length)],
