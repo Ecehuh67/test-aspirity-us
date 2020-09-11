@@ -1,4 +1,3 @@
-import { Filters } from './../ts-types';
 import { Reducer } from '../ts-types';
 import { ActionCreator, ActionType } from './actions';
 import { extend, DATE_FILTERS, TYPES_FILTERS, changeFilter } from '../consts';

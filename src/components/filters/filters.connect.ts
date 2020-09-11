@@ -1,6 +1,5 @@
 import Filters from './filters';
 import { connect } from 'react-redux';
-import { ActionCreator } from '../../reducer/actions';
 import { Operations } from '../../reducer/reducer';
 
 const mapStateToProps = (state) => {

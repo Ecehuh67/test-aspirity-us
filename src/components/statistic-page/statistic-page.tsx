@@ -1,8 +1,6 @@
-import axios from 'axios';
 import Filters from '../filters/filters.connect';
 import NewData from '../new-data/new-data.connect';
-import { generateKey, SERVER_URL, changeFilter } from '../../consts';
-import { AppContext } from '../context-provider/context-provider';
+import { generateKey } from '../../consts';
 import { StatisticProps } from '../../ts-types';
 
 const StatisticPage: React.SFC<StatisticProps> = ({

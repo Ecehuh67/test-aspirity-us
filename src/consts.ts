@@ -3,7 +3,7 @@ import { UserData, Filters } from './ts-types';
 export const SERVER_URL = 'http://localhost:3001/';
 
 // imitating a server delay
-export const SERVER_DELAY = 300;
+export const SERVER_DELAY = 1300;
 
 export const TYPES_OF_SORTING: string[] = ['date', 'type', 'distance'];
 export const DATE_FILTERS = ['All', 'Decrease', 'Increase'];

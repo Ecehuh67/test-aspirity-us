@@ -11,7 +11,7 @@ app.use(express.json());
 
 const { generateUserData, generateUniqueId } = require('./server-consts');
 
-let userStatistic = generateUserData(3);
+let userStatistic = generateUserData(15);
 
 app.get('/', (req, res) => {
   res.json(userStatistic);

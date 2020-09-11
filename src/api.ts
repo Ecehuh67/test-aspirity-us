@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SERVER_URL, SERVER_DELAY } from './consts';
+import { SERVER_URL } from './consts';
 
 const createApi = () => {
   const api = axios.create({
@@ -12,8 +12,6 @@ const createApi = () => {
   };
 
   const onFail = (err) => {
-    const { response } = err;
-
     throw err;
   };
 

@@ -1,13 +1,12 @@
-import App from './components/app/app';
 import thunk from 'redux-thunk';
-import { reducer } from './reducer/reducer';
 import { Provider } from 'react-redux';
-import { createApi } from './api';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { createApi } from './api';
+import { reducer } from './reducer/reducer';
+import App from './components/app/app';
 
 const api = createApi();
-console.log(api);
 
 const store = createStore(
   reducer,

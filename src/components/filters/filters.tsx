@@ -36,7 +36,7 @@ const Filters: React.SFC<FiltersProps> = ({ filterData, filters }) => {
     <>
       {Object.keys(filtersList).map((filter, i) => {
         return (
-          <div key={`${filter} ${i}`}>
+          <div key={`${filter} ${Math.random() * i}`}>
             <Filter
               filterList={filtersList[filter].types}
               currentFilter={filter}

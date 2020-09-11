@@ -1,6 +1,5 @@
 import PreviewScreen from './preview-screen';
 import { connect } from 'react-redux';
-import { ActionCreator } from '../../reducer/actions';
 import { Operations } from '../../reducer/reducer';
 
 const mapStateToProps = (state) => {

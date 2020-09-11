@@ -1,11 +1,4 @@
-import axios from 'axios';
-import { AppContext } from '../context-provider/context-provider';
-import {
-  TYPES_OF_SORTING,
-  validateDate,
-  changeState,
-  SERVER_URL,
-} from '../../consts';
+import { TYPES_OF_SORTING, validateDate, changeState } from '../../consts';
 import { PopupProps } from '../../ts-types';
 
 const NewData: React.SFC<PopupProps> = ({
@@ -15,7 +8,6 @@ const NewData: React.SFC<PopupProps> = ({
   editData,
   addData,
 }) => {
-  // const { setUserData } = React.useContext(AppContext);
   const popup = React.useRef(null);
   const form = React.useRef(null);
 
