@@ -5,6 +5,7 @@ const ActionType = {
   SET_FILTERS: 'SET_FILTERS',
   RESET_FILTER: 'RESET_FILTER',
   FILTER_DATA: 'FILTER_DATA',
+  ADD_DATA: 'ADD_DATA',
 };
 
 const ActionCreator = {
@@ -30,6 +31,24 @@ const ActionCreator = {
     return {
       type: ActionType.FILTER_DATA,
       payload: null,
+    };
+  },
+  deleteData: (data) => {
+    return {
+      type: ActionType.DELETE_STATISTIC,
+      payload: data,
+    };
+  },
+  editData: (data) => {
+    return {
+      type: ActionType.PATCH_STATISTIC,
+      payload: data,
+    };
+  },
+  addData: (data) => {
+    return {
+      type: ActionType.ADD_DATA,
+      payload: data,
     };
   },
 };

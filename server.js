@@ -11,7 +11,7 @@ app.use(express.json());
 
 const { generateUserData, generateUniqueId } = require('./server-consts');
 
-let userStatistic = generateUserData(15);
+let userStatistic = generateUserData(3);
 
 app.get('/', (req, res) => {
   res.json(userStatistic);
@@ -27,7 +27,6 @@ app.post('/newItem', (req, res) => {
   const id = { id: generateUniqueId() };
   const newItem = Object.assign(req.body, id);
   userStatistic.push(newItem);
-  //
   res.json(userStatistic);
 });
 

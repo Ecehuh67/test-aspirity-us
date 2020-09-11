@@ -6,6 +6,9 @@ export interface PreviewScreenProps {
 
 export interface StatisticProps {
   statistic: UserData;
+  sortedStatistic: UserData;
+  filterData;
+  deleteData;
 }
 
 export type NodeProps = {
@@ -60,6 +63,8 @@ export type PopupProps = {
     isEdit: boolean;
   };
   resetEdit;
+  editData;
+  addData;
 };
 
 export type Reducer = {

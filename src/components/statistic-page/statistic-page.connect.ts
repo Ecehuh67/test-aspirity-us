@@ -5,13 +5,17 @@ import { Operations } from '../../reducer/reducer';
 
 const mapStateToProps = (state) => {
   return {
-    statistic: state.sortedStatistic,
+    statistic: state.statistic,
+    sortedStatistic: state.sortedStatistic,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  loadStatistic() {
-    dispatch(Operations.loadStatistic());
+  filterData() {
+    dispatch(Operations.filterData());
+  },
+  deleteData(data) {
+    dispatch(Operations.deleteData(data));
   },
 });
 

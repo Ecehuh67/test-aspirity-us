@@ -1,24 +1,22 @@
 import axios from 'axios';
 import Filters from '../filters/filters.connect';
-import NewData from '../new-data/new-data';
+import NewData from '../new-data/new-data.connect';
 import { generateKey, SERVER_URL, changeFilter } from '../../consts';
 import { AppContext } from '../context-provider/context-provider';
 import { StatisticProps } from '../../ts-types';
 
-const StatisticPage: React.SFC<StatisticProps> = ({ statistic }) => {
-  // const {
-  //   userData,
-  //   filteredData,
-  //   setFilter,
-  //   setUserData,
-  //   filters,
-  // } = React.useContext(AppContext);
+const StatisticPage: React.SFC<StatisticProps> = ({
+  statistic,
+  sortedStatistic,
+  filterData,
+  deleteData,
+}) => {
   const [popup, setPopup] = React.useState(null);
   const [editPoint, setEdit] = React.useState({ isEdit: false });
 
-  // React.useEffect(() => {
-  //   setFilter(changeFilter(userData, filters));
-  // }, [userData]);
+  React.useEffect(() => {
+    filterData();
+  }, [statistic]);
 
   return (
     <main className="html-wrapper main statistic-main">
@@ -41,7 +39,7 @@ const StatisticPage: React.SFC<StatisticProps> = ({ statistic }) => {
           </div>
           <div className="statistic-main__table-body">
             <ul className="statistic-main__table-rows table-row">
-              {statistic.map((point, i) => {
+              {sortedStatistic.map((point, i) => {
                 return (
                   <li
                     className={`table-row__item ${
@@ -85,9 +83,7 @@ const StatisticPage: React.SFC<StatisticProps> = ({ statistic }) => {
                         className="controls-panel__item controls-panel__item--delete"
                         type="button"
                         onClick={() => {
-                          // axios.post(SERVER_URL, point).then((res) => {
-                          //   setUserData(res.data);
-                          // });
+                          deleteData(point);
                         }}
                       >
                         &times;

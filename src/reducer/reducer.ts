@@ -28,6 +28,21 @@ const Operations = {
   filterData: () => (dispatch, getState, api) => {
     return dispatch(ActionCreator.filterData());
   },
+  deleteData: (data) => (dispatch, getState, api) => {
+    return api
+      .post('/', data)
+      .then((response) => dispatch(ActionCreator.deleteData(response.data)));
+  },
+  editData: (data) => (dispatch, getState, api) => {
+    return api
+      .post('editItem', data)
+      .then((response) => dispatch(ActionCreator.editData(response.data)));
+  },
+  addData: (data) => (dispatch, getState, api) => {
+    return api
+      .post('newItem', data)
+      .then((response) => dispatch(ActionCreator.addData(response.data)));
+  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -49,6 +64,21 @@ const reducer = (state = initialState, action) => {
       const newData = changeFilter(state.statistic, state.filters);
       return extend(state, {
         sortedStatistic: newData,
+      });
+
+    case ActionType.DELETE_STATISTIC:
+      return extend(state, {
+        statistic: action.payload,
+      });
+
+    case ActionType.PATCH_STATISTIC:
+      return extend(state, {
+        statistic: action.payload,
+      });
+
+    case ActionType.ADD_DATA:
+      return extend(state, {
+        statistic: action.payload,
       });
   }
 
