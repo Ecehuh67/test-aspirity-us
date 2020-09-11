@@ -6,12 +6,13 @@ import { SERVER_URL, SERVER_DELAY } from '../../consts';
 const PreviewScreen: React.SFC<PreviewScreenProps> = ({
   cb,
   loadStatistic,
+  loadData,
 }) => {
   // const { setUserData } = React.useContext(AppContext);
 
-  React.useEffect(() => {
-    loadStatistic();
-  }, []);
+  // React.useEffect(() => {
+  //   loadStatistic();
+  // }, []);
   return (
     <main className="html-wrapper main preview-main">
       <h1 className="preview-main__caption">Welcome to Best Runner App !</h1>
@@ -20,17 +21,10 @@ const PreviewScreen: React.SFC<PreviewScreenProps> = ({
         type="button"
         onClick={() => {
           cb(false);
-
-          // setTimeout(() => {
-          //   axios
-          //     .get(SERVER_URL)
-          //     .then(({ data }) => {
-          //       setUserData(data);
-          //     })
-          //     .then(() => {
-          //       loadData(true);
-          //     });
-          // }, SERVER_DELAY);
+          setTimeout(() => {
+            loadStatistic();
+            loadData(true);
+          }, SERVER_DELAY);
         }}
       >
         Let&apos;s run

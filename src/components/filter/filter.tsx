@@ -4,10 +4,10 @@ const Filter: React.SFC<FilterProps> = ({
   filterList,
   activeFilters,
   currentFilter,
-  setNewFilter,
+  setFilters,
   isActive,
   setActive,
-  resetCurrentFilter,
+  resetFilter,
 }) => {
   return (
     <>
@@ -25,11 +25,8 @@ const Filter: React.SFC<FilterProps> = ({
                 index += 1;
               }
 
-              setNewFilter((prev) => {
-                return {
-                  ...prev,
-                  [currentFilter]: filterList[index],
-                };
+              setFilters({
+                [currentFilter]: filterList[index],
               });
             }}
           >
@@ -47,11 +44,8 @@ const Filter: React.SFC<FilterProps> = ({
                 index -= 1;
               }
 
-              setNewFilter((prev) => {
-                return {
-                  ...prev,
-                  [currentFilter]: filterList[index],
-                };
+              setFilters({
+                [currentFilter]: filterList[index],
               });
             }}
           >
@@ -71,7 +65,7 @@ const Filter: React.SFC<FilterProps> = ({
                 controls.forEach((el) => {
                   el.classList.add('sorting-panel__item-controls--hidden');
                 });
-                resetCurrentFilter(currentFilter);
+                resetFilter(currentFilter);
               } else {
                 controls.forEach((el) => {
                   el.classList.remove('sorting-panel__item-controls--hidden');

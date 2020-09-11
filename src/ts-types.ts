@@ -1,6 +1,11 @@
 export interface PreviewScreenProps {
   cb: (flag: boolean) => void;
+  loadData;
   loadStatistic: () => void;
+}
+
+export interface StatisticProps {
+  statistic: UserData;
 }
 
 export type NodeProps = {
@@ -14,6 +19,12 @@ export type ContextProps = {
   setFilter;
   setFilters;
   filters: Filters;
+};
+
+export type FiltersProps = {
+  filterData;
+  filters: Filters;
+  sortedData?: UserData | [];
 };
 
 export type UserData = {
@@ -33,10 +44,10 @@ export type FilterProps = {
   filterList: string[];
   activeFilters: Filters;
   currentFilter: string;
-  setNewFilter;
+  setFilters;
   isActive: boolean;
   setActive;
-  resetCurrentFilter;
+  resetFilter;
 };
 
 export type PopupProps = {
@@ -54,4 +65,5 @@ export type PopupProps = {
 export type Reducer = {
   statistic: UserData;
   sortedStatistic: UserData | [];
+  filters: Filters;
 };

@@ -1,23 +1,24 @@
 import axios from 'axios';
-import Filters from '../filters/filters';
+import Filters from '../filters/filters.connect';
 import NewData from '../new-data/new-data';
 import { generateKey, SERVER_URL, changeFilter } from '../../consts';
 import { AppContext } from '../context-provider/context-provider';
+import { StatisticProps } from '../../ts-types';
 
-const statisticPage: React.SFC = () => {
-  const {
-    userData,
-    filteredData,
-    setFilter,
-    setUserData,
-    filters,
-  } = React.useContext(AppContext);
+const StatisticPage: React.SFC<StatisticProps> = ({ statistic }) => {
+  // const {
+  //   userData,
+  //   filteredData,
+  //   setFilter,
+  //   setUserData,
+  //   filters,
+  // } = React.useContext(AppContext);
   const [popup, setPopup] = React.useState(null);
   const [editPoint, setEdit] = React.useState({ isEdit: false });
 
-  React.useEffect(() => {
-    setFilter(changeFilter(userData, filters));
-  }, [userData]);
+  // React.useEffect(() => {
+  //   setFilter(changeFilter(userData, filters));
+  // }, [userData]);
 
   return (
     <main className="html-wrapper main statistic-main">
@@ -40,7 +41,7 @@ const statisticPage: React.SFC = () => {
           </div>
           <div className="statistic-main__table-body">
             <ul className="statistic-main__table-rows table-row">
-              {filteredData.map((point, i) => {
+              {statistic.map((point, i) => {
                 return (
                   <li
                     className={`table-row__item ${
@@ -84,9 +85,9 @@ const statisticPage: React.SFC = () => {
                         className="controls-panel__item controls-panel__item--delete"
                         type="button"
                         onClick={() => {
-                          axios.post(SERVER_URL, point).then((res) => {
-                            setUserData(res.data);
-                          });
+                          // axios.post(SERVER_URL, point).then((res) => {
+                          //   setUserData(res.data);
+                          // });
                         }}
                       >
                         &times;
@@ -116,4 +117,4 @@ const statisticPage: React.SFC = () => {
   );
 };
 
-export default statisticPage;
+export default StatisticPage;

@@ -1,12 +1,8 @@
-import Filter from '../filter/filter';
-import { AppContext } from '../context-provider/context-provider';
-import { changeFilter, DATE_FILTERS, TYPES_FILTERS } from '../../consts';
+import Filter from '../filter/filter.connect';
+import { DATE_FILTERS, TYPES_FILTERS } from '../../consts';
+import { FiltersProps } from '../../ts-types';
 
-const Filters: React.SFC = () => {
-  const { userData, setFilter, filters, setFilters } = React.useContext(
-    AppContext
-  );
-
+const Filters: React.SFC<FiltersProps> = ({ filterData, filters }) => {
   // Make filters active to chose necessary category
   const [isDataFilterActive, setDataActive] = React.useState<boolean>(false);
   const [isTypeFilterActive, setTypeActive] = React.useState<boolean>(false);
@@ -14,50 +10,42 @@ const Filters: React.SFC = () => {
     false
   );
 
-  const resetFilter = (filter) => {
-    setFilters((prev) => {
-      return {
-        ...prev,
-        [filter]: 'All',
-      };
-    });
+  const filtersList = {
+    date: {
+      isActive: isDataFilterActive,
+      setActive: setDataActive,
+      types: DATE_FILTERS,
+    },
+    type: {
+      isActive: isTypeFilterActive,
+      setActive: setTypeActive,
+      types: TYPES_FILTERS,
+    },
+    distance: {
+      isActive: isDistanceFilterActive,
+      setActive: setDistanceActive,
+      types: DATE_FILTERS,
+    },
   };
 
   React.useEffect(() => {
-    setFilter(changeFilter(userData, filters));
+    filterData();
   }, [filters]);
 
   return (
     <>
-      <Filter
-        filterList={DATE_FILTERS}
-        activeFilters={filters}
-        currentFilter="date"
-        setNewFilter={setFilters}
-        isActive={isDataFilterActive}
-        setActive={setDataActive}
-        resetCurrentFilter={resetFilter}
-      />
-
-      <Filter
-        filterList={TYPES_FILTERS}
-        activeFilters={filters}
-        currentFilter="type"
-        setNewFilter={setFilters}
-        isActive={isTypeFilterActive}
-        setActive={setTypeActive}
-        resetCurrentFilter={resetFilter}
-      />
-
-      <Filter
-        filterList={DATE_FILTERS}
-        activeFilters={filters}
-        currentFilter="distance"
-        setNewFilter={setFilters}
-        isActive={isDistanceFilterActive}
-        setActive={setDistanceActive}
-        resetCurrentFilter={resetFilter}
-      />
+      {Object.keys(filtersList).map((filter, i) => {
+        return (
+          <div key={`${filter} ${i}`}>
+            <Filter
+              filterList={filtersList[filter].types}
+              currentFilter={filter}
+              isActive={filtersList[filter].isActive}
+              setActive={filtersList[filter].setActive}
+            />
+          </div>
+        );
+      })}
     </>
   );
 };

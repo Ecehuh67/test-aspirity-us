@@ -9,7 +9,7 @@ import {
 import { PopupProps } from '../../ts-types';
 
 const NewData: React.SFC<PopupProps> = ({ cb, editPoint, resetEdit }) => {
-  const { setUserData } = React.useContext(AppContext);
+  // const { setUserData } = React.useContext(AppContext);
   const popup = React.useRef(null);
   const form = React.useRef(null);
 
@@ -157,7 +157,7 @@ const NewData: React.SFC<PopupProps> = ({ cb, editPoint, resetEdit }) => {
                   if (!editPoint.isEdit) {
                     // Send new data to the server
                     axios.post(`${SERVER_URL}newItem`, obj).then((res) => {
-                      setUserData(res.data);
+                      // setUserData(res.data);
                       resetData();
                       form.current.reset();
                     });
@@ -168,7 +168,7 @@ const NewData: React.SFC<PopupProps> = ({ cb, editPoint, resetEdit }) => {
                         Object.assign(editPoint, obj)
                       )
                       .then((res) => {
-                        setUserData(res.data);
+                        // setUserData(res.data);
                         resetData();
                         form.current.reset();
                       });

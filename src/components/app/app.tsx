@@ -1,6 +1,6 @@
 import '../../less/style.less';
 import PreviewScreen from '../preview-screen/preview-screen.connect';
-import StatisticPage from '../statistic-page/statistic-page';
+import StatisticPage from '../statistic-page/statistic-page.connect';
 import LoadingScreen from '../loading-screen/loading-screen';
 
 const App: React.FC = () => {
