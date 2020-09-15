@@ -35,15 +35,16 @@ const Filters: React.SFC<FiltersProps> = ({ filterData, filters }) => {
   return (
     <>
       {Object.keys(filtersList).map((filter, i) => {
+        console.log(filter);
         return (
-          <div key={`${filter} ${Math.random() * i}`}>
+          <li className="sorting-panel__item" key={`${filter}${i}`}>
             <Filter
               filterList={filtersList[filter].types}
               currentFilter={filter}
               isActive={filtersList[filter].isActive}
               setActive={filtersList[filter].setActive}
             />
-          </div>
+          </li>
         );
       })}
     </>
